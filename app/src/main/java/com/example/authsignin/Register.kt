@@ -26,35 +26,24 @@ class Register : AppCompatActivity() {
             } else if (binding.etPassword.text.toString().isEmpty()) {
                 binding.etPassword.error = "Enter your email"
             } else {
-                Toast.makeText(applicationContext, "Successfully Register", Toast.LENGTH_SHORT).show()
-            }
-        }
-        binding.alreadyRegister.setOnClickListener {
-            if (binding.etEmail.text.toString().isEmpty()) {
-                binding.etEmail.error = "Enter your email"
-            } else if (binding.etPassword.text.toString().isEmpty()) {
-                binding.etPassword.error = "Enter your email"
-            }
-            else if (binding.etConfirm.text.toString().equals(binding.etPassword.text.toString()) == false) {
-                binding.etConfirm.error = "Confirm password is not same"
-            }
-            else {
                 System.out.println("Register")
-                auth.signInWithEmailAndPassword(
+                auth.createUserWithEmailAndPassword(
                     binding.etEmail.text.toString(), binding.etPassword.text.toString()
                 ).addOnSuccessListener {
-                    Toast.makeText(applicationContext, "Successfully Register", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, FirebaseAuthException::class.java))
-                    finish()
+                    Toast.makeText(applicationContext, "Successfully Register", Toast.LENGTH_SHORT)
+                        .show()
+                   // startActivity(Intent(this, FirebaseAuthException::class.java))
+                    //finish()
                 }
                     .addOnFailureListener {
+                        System.out.println("error $it")
                         Toast.makeText(applicationContext, "Error${it.toString()}", Toast.LENGTH_SHORT).show()
                     }
             }
-        }
-        binding.alreadyRegister.setOnClickListener {
-            var intent=Intent(this,MainActivity::class.java)
-            startActivity(intent)
+            binding.alreadyRegister.setOnClickListener {
+                var intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }

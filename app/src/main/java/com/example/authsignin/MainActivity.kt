@@ -28,11 +28,9 @@ class MainActivity : AppCompatActivity() {
                 binding.etPass.error = "Enter your email"
             }
             else{
-                auth.createUserWithEmailAndPassword(
+                auth.signInWithEmailAndPassword(
                     binding.etEmail.text.toString(), binding.etPass.text.toString()).addOnSuccessListener {
                     Toast.makeText(applicationContext, "Successfully Login", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, FirebaseAuthException::class.java))
-                    finish()
                 }
                     .addOnFailureListener {
                         Toast.makeText(applicationContext, "Error${it.toString()}", Toast.LENGTH_SHORT).show()

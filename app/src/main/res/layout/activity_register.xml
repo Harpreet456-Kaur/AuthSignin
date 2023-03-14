@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etEmail"
+        android:text="asd@gmail.com"
         android:hint="Enter your Email"
         android:layout_marginTop="20dp"/>
 
@@ -18,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etPassword"
+        android:text="123456"
         android:inputType="numberPassword"
         android:hint="Enter your password"
         />
@@ -26,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etConfirm"
+        android:text="123456"
         android:inputType="numberPassword"
         android:hint="Confirm Password"
        />
